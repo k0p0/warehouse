@@ -43,6 +43,6 @@ class StorehousesController < ApplicationController
   end
 
   def params_storehouse
-    params.require(:storehouse).permit(:name, :address, :capacity, :day_price, :user_id)
+    params.require(:storehouse).permit(:name, :address, :capacity, :day_price, :picture :user_id)
   end
 end
