@@ -1,12 +1,12 @@
+<h1>Storehouses</h1>
 <div class="main-container">
-  <h1>Storehouses</h1>
   <div class="cards-container">
     <% @storehouses.order("name ASC").each do |storehouse| %>
-      <div class="flexbox">
+      <div class="card-index">
         <div class="storehouse-name"><%= storehouse.name %></div>
         <div class="storehouse-addresse"><%= storehouse.address %></div>
-        <div class="storehouse-capacity"><%= storehouse.capacity %></div>
-        <div class="storehouse-day-price"><%= storehouse.day_price %></div>
+        <div class="storehouse-capacity"><%= storehouse.capacity %>m&sup3;</div>
+        <div class="storehouse-day-price"><%= storehouse.day_price %>€</div>
       </div>
     <% end %>
   </div>
@@ -14,3 +14,21 @@
 
   </div>
 </div>
+
+<!-- Gmaps js: building the map -->
+<script>
+  function initMap() {
+    // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 52.5206, lng: 13.4098},
+      scrollwheel: false,
+      zoom: 8
+    });
+  }
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Gmaps JavaScript -->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
+</script>
