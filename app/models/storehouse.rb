@@ -6,5 +6,6 @@ class Storehouse < ApplicationRecord
   validates :address, presence: true, uniqueness: true, allow_blank: false
   validates :capacity, presence: true, allow_blank: false
   validates :day_price, presence: true, allow_blank: false
+  validates :description, presence: true, allow_blank: false
   mount_uploader :picture, PictureUploader
 end
