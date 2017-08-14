@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20170814114439) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer "status"
-    t.date "start_on"
-    t.date "end_on"
+    t.date "starts_on"
+    t.date "ends_on"
     t.bigint "user_id"
     t.bigint "storehouse_id"
     t.datetime "created_at", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170814114439) do
     t.string "name"
     t.string "address"
     t.integer "capacity"
-    t.integer "price"
+    t.integer "day_price"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,8 +49,6 @@ ActiveRecord::Schema.define(version: 20170814114439) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name"
     t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
