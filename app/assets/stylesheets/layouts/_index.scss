@@ -5,3 +5,57 @@
 // @import "map";
 
 @import "home"
+  
+.main-container {
+  display: flex;
+}
+
+.cards-container {
+    display: flex;
+    align-items: stretch; /* force items to take all flexbox height */
+    border: 2px solid purple;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.card-index {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border: 2px solid red;
+  width: 100%;
+  margin: 10px 20px;
+  color: black;
+  height: 100px;
+  text-shadow: 0 0px 0px rgba(0, 0, 0, 0.6);
+
+}
+
+.storehouse-name {
+  flex: 0 0 20%;
+  border: 2px solid green;
+}
+
+.storehouse-addresse {
+  // flex: 0 0 auto;
+  border: 2px solid blue;
+  flex-grow: 1;
+}
+
+.storehouse-capacity {
+  flex: 0 0 15%;
+  border: 2px solid green;
+}
+
+.storehouse-day-price {
+  flex: 0 0 10%;
+  border: 2px solid green;
+}
+
+#map {
+  flex: 0 0 450px;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+}
