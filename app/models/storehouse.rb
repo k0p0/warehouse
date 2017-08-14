@@ -5,5 +5,5 @@ class Storehouse < ApplicationRecord
   validates :name, presence: true, uniqueness: true, allow_blank: false
   validates :address, presence: true, uniqueness: true, allow_blank: false
   validates :capacity, presence: true, allow_blank: false
-  validates :price, presence: true, allow_blank: false
+  validates :day_price, presence: true, allow_blank: false
 end
