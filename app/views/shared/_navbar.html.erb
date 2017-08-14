@@ -17,15 +17,15 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "emilie.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to edit_user_registration_path(current_user) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to "/" do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
