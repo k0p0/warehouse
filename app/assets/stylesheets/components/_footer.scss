@@ -3,14 +3,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 50px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
+
+.footer-info {
+  display: flex;
+  align-items: center;
+}
+
+.footer-link {
+  font-size: 15px;
+  padding: 0px 10px;
+}
+
 .footer-links a {
   color: black;
   opacity: 0.6;
@@ -22,5 +37,5 @@
   opacity: 1;
 }
 .footer .fa:hover {
-  color: #449D44;
+  color: $orange;
 }

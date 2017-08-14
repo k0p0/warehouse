@@ -1,0 +1,35 @@
+.stats-home {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: $light-gray;
+}
+
+.customers-home {
+  padding-bottom: 50px;
+  background-color: #E9E9E8;
+}
+
+.stats, .customers {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  margin-bottom: 30px;
+  color: black;
+  font-weight: bolder;
+}
+
+.stat {
+
+}
+
+img {
+  height: 100px;
+  width: 130px;
+  border-radius: 5px;
+}
+
+.icon {
+  font-size: 50px;
+}

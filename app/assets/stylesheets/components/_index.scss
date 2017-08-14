@@ -9,3 +9,8 @@
 @import "message";
 @import "product_item";
 @import "tabs";
+
+.content-wrapper {
+  min-height: calc(100vh - 70px - 50px);
+}
+
