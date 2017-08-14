@@ -2,12 +2,15 @@
 <div class="main-container">
   <div class="cards-container">
     <% @storehouses.order("name ASC").each do |storehouse| %>
-      <div class="card-index">
-        <div class="storehouse-name"><%= storehouse.name %></div>
-        <div class="storehouse-addresse"><%= storehouse.address %></div>
-        <div class="storehouse-capacity"><%= storehouse.capacity %>m&sup3;</div>
-        <div class="storehouse-day-price"><%= storehouse.day_price %>€</div>
-      </div>
+      <%= link_to storehouse_path(storehouse) do%>
+        <div class="card-index">
+          <div class="storehouse-name"><strong><%= storehouse.name %></strong></div>
+          <div class="storehouse-addresse"><%= storehouse.address %></div>
+          <div class="storehouse-capacity"><%= storehouse.capacity %>m&sup3;</div>
+          <div class="storehouse-day-price"><%= storehouse.day_price %>€</div>
+        </div>
+      <% end %>
+
     <% end %>
   </div>
   <div id="map">
