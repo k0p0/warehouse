@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'pry-byebug'
