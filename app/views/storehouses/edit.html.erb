@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= simple_form_for(@storehouse) do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name, label: "Stroehouse's name :" %>
+      <%= f.input :address, label: "Storehouse's address :" %>
+      <%= f.input :description, label: "Storehouse's description :" %>
+      <%= f.input :capacity, label: "Storehouse's capacity (m3):" %>
+      <%= f.input :day_price, label: "Storehouse's price per day (€):" %>
+
+
+      <%= f.input :picture %>
+      <%= f.input :picture_cache, as: :hidden %>
+      <br>
+      <%= f.button :submit , class:'btn-medium'%>
+      <% end %>
+      <br>
+    </div>
+  </div>
+</div>
