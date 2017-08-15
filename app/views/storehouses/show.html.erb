@@ -23,20 +23,18 @@
 					</tr>
 				</table>
 			</div>
-		<div class="flex-item">
-			<%= cl_image_tag @storehouse.picture.url %>
+			<div class="flex-item">
+				<%= cl_image_tag @storehouse.picture.url %>
+			</div>
 		</div>
-	</div>
-
-	<div class="show-flexbox">
+		<div class="show-flexbox">
 			<%= simple_form_for [ @storehouse, @reservation ] ,html: {class: "form-inline"} do |f| %>
 			<%= f.error_notification %>
-				<%= f.input :starts_on, label: " start date : ",as: :string, required: true, input_html: { class: "datepicker" } %>
-				<%= f.input :ends_on, label: " end date : ",as: :string, required: true, input_html: { class: "datepicker" } %>
-				<%= f.button :submit, "Book" , class: "btn-medium" %>
-				</div>
+			<%= f.input :starts_on, label: " start date : ",as: :string, required: true, input_html: { class: "datepicker" } %>
+			<%= f.input :ends_on, label: " end date : ",as: :string, required: true, input_html: { class: "datepicker" } %>
+			<%= f.button :submit, "Book" , class: "btn-medium" %>
 			<% end %>
-	</div>
+		</div>
 	</div>
 </div>
 <div class="container text-center">
