@@ -8,10 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10000;
 }
 
 /* Logo */
