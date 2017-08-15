@@ -1,0 +1,67 @@
+.search-title {
+  text-align: center;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 15px;
+}
+
+.cards-container {
+  // display: flex; /* WE DON'T WANT A FLEWBOX HERE */
+  // align-items: stretch; /* force items to take all flexbox height */
+  // flex-wrap: wrap;
+  padding: 10px 0;
+  width: 53%;
+  a:hover {
+    text-decoration : none;
+  }
+}
+
+.card-index {
+  background-color: white;
+  padding: 10px 25px;
+  margin: 10px 0px;
+  display: flex; /* HERE WE WANT A FLEWBOX BECAUSE WE ARE USING DEPLAY */
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  border-radius: 5px;
+  box-shadow: 0 0.5px 0.5px rgba(0, 0, 0, 0.4);
+  color: $gray;
+  font-size: 16px;
+  text-shadow: 0 0px 0px rgba(0, 0, 0, 0.6);
+}
+
+.card-index:hover {
+  opacity: 0.8;
+  color: $orange;
+}
+
+.storehouse-name {
+  flex: 0 0 20%;
+}
+
+.storehouse-addresse {
+  // flex: 0 0 auto;
+  flex-grow: 1;
+}
+
+.storehouse-capacity {
+  flex: 0 0 15%;
+  text-align: right;
+}
+
+.storehouse-day-price {
+  flex: 0 0 10%;
+  text-align: right;
+}
+
+#map {
+  flex: 0 0 45%;
+  height: calc(100vh - 70px - 50px); /* or min-height */
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+  margin-top: 20px;
+}
