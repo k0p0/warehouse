@@ -18,6 +18,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'bootstrap-datepicker-rails'
+
 
 group :development, :test do
   gem 'pry-byebug'

@@ -1,13 +1,14 @@
 class StorehousesController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_storehouse, only: [ :show, :edit ]
 
   def index
     @storehouses = Storehouse.all
   end
 
   def show
-    @storehouse = Storehouse.find(params[:id])
+     @reservation = Reservation.new
   end
 
   def new
@@ -38,7 +39,7 @@ class StorehousesController < ApplicationController
 
   private
 
-  def set_storhouse
+  def set_storehouse
     @storehouse = Storehouse.find(params[:id])
   end
 

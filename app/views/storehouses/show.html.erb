@@ -1,35 +1,50 @@
 <div class="container">
-  <div class="row">
-    <h1 class="text-center"><%= @storehouse.name %></h1>
+	<div class="row">
+		<h1 class="text-center"><%= @storehouse.name %></h1>
+		<br>
+		<div class="show-flexbox">
+			<div class="flex-item">
+				<table class="table">
+					<tr>
+						<td with="5%" class="text-center"><i class="fa fa-map-marker fa-2x"></i></td>
+						<td id="address"><%= @storehouse.address %></td>
+					</tr>
+					<tr>
+						<td with="5%" class="text-center"><i class="fa fa-archive fa-2x"></i></td>
+						<td><%= @storehouse.capacity %> m&sup3; available</td>
+					</tr>
+					<tr>
+						<td with="5%" class="text-center"><i class="fa fa-euro fa-2x"></i></td>
+						<td><%= @storehouse.day_price %> € per day</td>
+					</tr>
+					<tr>
+						<td with="5%" class="text-center"><i class="fa fa-user fa-2x"></i></td>
+						<td><%= @storehouse.user.name %> </td>
+					</tr>
+				</table>
+			</div>
+		<div class="flex-item">
+			<%= cl_image_tag @storehouse.picture.url %>
+		</div>
+	</div>
 
-<br>
-    <table class="table">
-      <tr>
-        <td with="5%" class="text-center"><i class="fa fa-map-marker fa-2x"></i></td>
-        <td id="address"><%= @storehouse.address %></td>
-      </tr>
-      <tr>
-        <td with="5%" class="text-center"><i class="fa fa-archive fa-2x"></i></td>
-        <td><%= @storehouse.capacity %> m&sup3; available</td>
-      </tr>
-      <tr>
-        <td with="5%" class="text-center"><i class="fa fa-euro fa-2x"></i></td>
-        <td><%= @storehouse.day_price %> € per day</td>
-      </tr>
-      <tr>
-        <td with="5%" class="text-center"><i class="fa fa-user fa-2x"></i></td>
-        <td><%= @storehouse.user.name %> </td>
-      </tr>
-      <tr><td></td><td></td></tr>
-    </table>
-</div>
+	<div class="show-flexbox">
+			<%= simple_form_for [ @storehouse, @reservation ] ,html: {class: "form-inline"} do |f| %>
+			<%= f.error_notification %>
+				<%= f.input :starts_on, label: " start date : ",as: :string, required: true, input_html: { class: "datepicker" } %>
+				<%= f.input :ends_on, label: " end date : ",as: :string, required: true, input_html: { class: "datepicker" } %>
+				<%= f.button :submit, "Book" , class: "btn-medium" %>
+				</div>
+			<% end %>
+	</div>
+	</div>
 </div>
 <div class="container text-center">
-<div id="map" style="height: 500px">
+	<div id="map" style="height: 500px">
+	</div>
 </div>
-</div>
- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhH93WHb1203Y_2uA2TFiiUKxKt-e--fY&callback=initMap"
-  type="text/javascript"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhH93WHb1203Y_2uA2TFiiUKxKt-e--fY&callback=initMap"
+type="text/javascript"></script>
 <script>
 let address = document.getElementById("address").innerText;
 let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}`;
@@ -53,7 +68,3 @@ if(window.location.href.substr(-2) !== "?r") {
 window.location = window.location.href + "?r";
 }
 </script>
-
-
-
-
