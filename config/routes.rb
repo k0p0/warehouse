@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :storehouses do
     resources :reservations
   end
+  get 'about_us', to: 'pages#about_us'
+  get 'legal_mention', to: 'pages#legal_mention'
 end

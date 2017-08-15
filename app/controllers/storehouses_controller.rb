@@ -1,6 +1,7 @@
 class StorehousesController < ApplicationController
 
-  # skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_storehouse, only: [ :show, :edit, :update]
 
   def index
     # @storehouses = Storehouse.all
@@ -13,7 +14,7 @@ class StorehousesController < ApplicationController
   end
 
   def show
-    @storehouse = Storehouse.find(params[:id])
+     @reservation = Reservation.new
   end
 
   def new
@@ -22,6 +23,7 @@ class StorehousesController < ApplicationController
 
   def create
     @storehouse = Storehouse.new(params_storehouse)
+    @storehouse.user = current_user
     if @storehouse.save
       redirect_to storehouse_path(@storehouse)
     else
@@ -44,11 +46,11 @@ class StorehousesController < ApplicationController
 
   private
 
-  def set_storhouse
+  def set_storehouse
     @storehouse = Storehouse.find(params[:id])
   end
 
   def params_storehouse
-    params.require(:storehouse).permit(:name, :address, :capacity, :day_price, :picture, :description, :user_id, :latitude, :longitude)
+    params.require(:storehouse).permit(:name, :address, :capacity, :day_price, :picture, :picture_cache, :description, :user_id, :latitude, :longitude)
   end
 end
