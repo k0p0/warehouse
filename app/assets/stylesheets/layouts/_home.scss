@@ -9,9 +9,17 @@
   background-color: #E9E9E8;
 }
 
-.stats, .customers {
+.customers {
   display: flex;
   justify-content: space-around;
+}
+
+.stats {
+  display: flex;
+}
+
+.stat {
+  flex: 1;
 }
 
 .title {

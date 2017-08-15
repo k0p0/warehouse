@@ -19,7 +19,7 @@ gem 'uglifier'
 gem 'cloudinary'
 gem 'carrierwave'
 gem 'bootstrap-datepicker-rails'
-
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'pry-byebug'

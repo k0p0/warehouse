@@ -1,7 +1,7 @@
 class StorehousesController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_storehouse, only: [ :show, :edit ]
+  before_action :set_storehouse, only: [ :show, :edit, :update]
 
   def index
     @storehouses = Storehouse.all
@@ -44,6 +44,6 @@ class StorehousesController < ApplicationController
   end
 
   def params_storehouse
-    params.require(:storehouse).permit(:name, :address, :capacity, :day_price, :picture, :description, :user_id)
+    params.require(:storehouse).permit(:name, :address, :capacity, :day_price, :picture, :picture_cache, :description, :user_id)
   end
 end
