@@ -1,3 +1,6 @@
 $(document).ready(function(){
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker(
+    { language: 'fr'}
+    // {dateFormat: 'dd-mm-yy' }
+    );
 });

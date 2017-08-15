@@ -19,9 +19,9 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new
-    starts_on = params_reservation[:starts_on].to_date
-    ends_on = params_reservation[:ends_on].to_date
-    if check_date(starts_on, ends_on)
+    starts_on = Date.strptime(params[:reservation][:starts_on],'%d/%m/%Y')
+    ends_on = Date.strptime(params[:reservation][:ends_on],'%d/%m/%Y')
+    if ((starts_on >= Date.today) && (starts_on < ends_on))
         @reservation.starts_on = starts_on
         @reservation.ends_on = ends_on
         @reservation.user = current_user
@@ -58,11 +58,6 @@ class ReservationsController < ApplicationController
   # def set_storehouse
   #   @storehouse = Storehouse.find(params[:id])
   # end
-  def check_date(date_start, date_end)
-    auj = Date.today.strftime("%m/%d/%Y")
-    ((date_start >= auj) && (date_start < date_end)) ? true : false
-  end
-
 
   def params_reservation
     params.require(:reservation).permit(:starts_on, :ends_on)
