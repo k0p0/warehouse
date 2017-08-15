@@ -17,6 +17,7 @@ class StorehousesController < ApplicationController
 
   def create
     @storehouse = Storehouse.new(params_storehouse)
+    @storehouse.user = current_user
     if @storehouse.save
       redirect_to storehouse_path(@storehouse)
     else
