@@ -19,6 +19,8 @@ gem 'uglifier'
 gem 'cloudinary'
 gem 'carrierwave'
 gem 'omniauth-facebook'
+gem "geocoder"
+
 
 group :development, :test do
   gem 'pry-byebug'
