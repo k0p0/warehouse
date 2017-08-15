@@ -1,12 +1,13 @@
 <div class="footer">
   <div class="footer-links">
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a>
   </div>
   <div class="footer-info">
-    <a href="#" class="footer-link">Legal notice</a>
-    <a href="#" class="footer-link">About us</a>
-    <a href="#" class="footer-link">Contact us</a>
+    <%= link_to 'Legal mention', pages_legal_mention_path, class: "footer-link" %>
+    <%= link_to 'About us', pages_about_us_path, class: "footer-link" %>
+    <a href="contact@stockaway.com" class="footer-link">Contact us</a>
   </div>
 </div>
+
