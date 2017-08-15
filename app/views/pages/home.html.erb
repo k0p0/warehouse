@@ -14,15 +14,15 @@
         <div class="row stats">
         <div class="stat">
           <i class="fa fa-globe icon"></i>
-          <h3>365 warehouses</h3>
+          <h3><%= Storehouse.count %> warehouses</h3>
        </div>
         <div class="stat">
           <i class="fa fa-expand icon"></i>
-          <h3>200 000 m&sup3; availables</h3>
+          <h3><%= Storehouse.sum("capacity") %> m&sup3; availables</h3>
        </div>
         <div class="stat">
-          <i class="fa fa-home icon"></i>
-          <h3>Present in 102 cities</h3>
+          <i class="fa fa-eur icon"></i>
+          <h3>around €<%= Storehouse.average("day_price") %>/day </h3>
        </div>
        </div>
     </div>
