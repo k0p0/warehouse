@@ -5,7 +5,7 @@
       <%= simple_form_for(@storehouse) do |f| %>
       <%= f.error_notification %>
       <%= f.input :name, label: "Stroehouse's name :" %>
-      <%= f.input :address, label: "Storehouse's address :" %>
+      <%= f.input :address, label: "Storehouse's address :", placeholder: "" %>
       <%= f.input :description, label: "Storehouse's description :" %>
       <%= f.input :capacity, label: "Storehouse's capacity (m3):" %>
       <%= f.input :day_price, label: "Storehouse's price per day (€):" %>
@@ -21,3 +21,21 @@
   </div>
 </div>
 
+
+<%= content_for(:after_js) do %>
+
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyD_RAkY8s72vyF-J80ulRyBuegrj_7yuN8"></script>
+
+  <script>
+    var flat_address = $('#storehouse_address').get(0);
+
+    if (flat_address) {
+      var autocomplete = new google.maps.places.Autocomplete(flat_address, { types: ['geocode'] });
+      google.maps.event.addDomListener(flat_address, 'keydown', function(e) {
+        if (e.keyCode == 13) {
+          e.preventDefault(); // Do not submit the form on Enter.
+        }
+      });
+    }
+  </script>
+<% end %>
