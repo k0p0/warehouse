@@ -6,8 +6,11 @@
 
 .searchbar {
   padding-top: 30px;
-  padding-bottom: 50px;
-  background-color: $light-gray;
+  h2 {
+    color: white;
+    padding-bottom: 10px !important;
+    padding-top: 80px;
+  }
 }
 
 .customers-home {
