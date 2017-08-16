@@ -1,16 +1,24 @@
 .btn-medium {
-  color: #999999;
-  border: 1px solid #999999;
+  // color: $orange;
+  color: white;
+  border: 3px solid $orange;
   padding: 10px 15px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
+  opacity: 1;
 }
 .btn-medium:hover {
   opacity: 1;
   text-decoration: none;
-  color: #999999;
+  border: 4px solid $orange;
+  color: $orange;
 }
+
+.book {
+  color: black;
+  background-color: #F4F4F4;
+}
+
 .btn-treehouse {
   color: white;
   padding: 10px 15px;
