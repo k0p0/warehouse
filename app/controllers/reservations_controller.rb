@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :set_reservation, only: [:destroy]
 
   def index
     @reservations = Reservation.all
@@ -32,7 +33,7 @@ class ReservationsController < ApplicationController
       render "storehouses/show"
     end
     if @reservation.save
-      redirect_to reservation_path(@reservation)
+      redirect_to admin_reservations_path
     else
       @storehouse = Storehouse.find(params[:id])
       @reservation = Reservation.new
@@ -44,20 +45,18 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    # @storehouse.update(params_storehouse)
-    # redirect_to storehouse_path(@storehouse)
   end
 
   def destroy
     @reservation.destroy
-    redirect_to storhouses_path
+    redirect_to admin_reservations_path
   end
 
   private
 
-  # def set_storehouse
-  #   @storehouse = Storehouse.find(params[:id])
-  # end
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
 
   def params_reservation
     params.require(:reservation).permit(:starts_on, :ends_on)
