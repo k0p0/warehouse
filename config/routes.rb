@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :reservations, only: [:index]
   end
+  resources :reservations, only: [:destroy]
   resources :storehouses do
     resources :reservations
   end
