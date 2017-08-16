@@ -20,7 +20,6 @@ gem 'cloudinary'
 gem 'carrierwave'
 gem 'bootstrap-datepicker-rails'
 gem 'omniauth-facebook'
-gem 'pundit'
 
 gem "geocoder"
 gem "coffee-rails"

@@ -25,3 +25,5 @@ Storehouse.create(name: "HomeBox", description: "Contact Us", address: "8 Place 
 Storehouse.create(name: "Flexi Stockage", description: "Contact Us", address: "123 Avenue Felix Faure, 75015 Paris", capacity: 45, day_price: 69, user_id: baptiste.id)
 Storehouse.create(name: "Costockage", description: "Contact Us", address: "13 Rue Emmanuel Chauvière, 75015 Paris", capacity: 127, day_price: 154, user_id: benjamin.id)
 Storehouse.create(name: "Paris Stockage", description: "Contact Us", address: "19 Avenue Pierre Semard, 94200 Ivry-sur-Seine", capacity: 80, day_price: 119, user_id: adrien.id)
+Storehouse.create(name: "OVH", description: "Contact Us", address: "2 rue Kellermann, 59100 Roubaix", capacity: 1000, day_price: 1229, user_id: benjamin.id)
+
