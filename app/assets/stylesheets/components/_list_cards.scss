@@ -2,8 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: sticky !important;
-  margin-top: 20px;
+  position: fixed;
+  top: 65px;
+  right: 0;
+  left: 0;
+  z-index: 500;
+  background-color: $light-gray;
 }
 
 .search-title {
@@ -13,24 +17,29 @@
 .main-container {
   display: flex;
   justify-content: space-around;
-  padding: 0px 15px;
+  padding: 72px 15px;
+  position: fixed;
+  width: 100%;
 }
 
 .cards-container {
   // display: flex; /* WE DON'T WANT A FLEWBOX HERE */
   // align-items: stretch; /* force items to take all flexbox height */
   // flex-wrap: wrap;
-  padding: 10px 0;
+
+  padding: 10px 15px 0 0;
   width: 53%;
   a:hover {
     text-decoration : none;
   }
+  overflow: scroll;
+  max-height: 70vh;
 }
 
 .card-index {
   background-color: white;
   padding: 10px 25px;
-  margin: 10px 0px;
+  margin: 0 0 10px 0;
   display: flex; /* HERE WE WANT A FLEWBOX BECAUSE WE ARE USING DEPLAY */
   align-items: center;
   width: 100%;
@@ -67,10 +76,43 @@
   text-align: right;
 }
 
-#map {
+#map-index {
   flex: 0 0 45%;
   height: calc(100vh - 50px); /* or min-height */
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 0 !important;
   margin-top: 20px;
+  top: 65px;
+  right: 0;
+  left: 0;
+  down: 0;
 }
+
+.map_box {
+  padding: 10px;
+  color: $gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 300px;
+  h3, p {
+    margin-left: 20px;
+  }
+}
+
+.btn-map-box {
+  background-color: $orange;
+  color: white;
+  opacity: 1;
+  width: 50%;
+  margin: 20px 0;
+  margin-left: 25%;
+}
+
+.btn-map-box:hover {
+    opacity: 0.8;
+    color: white;
+    text-decoration : none;
+  }
+
+
