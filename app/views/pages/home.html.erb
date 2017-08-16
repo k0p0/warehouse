@@ -22,7 +22,7 @@
        </div>
         <div class="stat">
           <i class="fa fa-eur icon"></i>
-          <h3>around €<%= Storehouse.average("day_price") %>/day </h3>
+          <h3>around €<%= Storehouse.average("day_price").round %>/day </h3>
        </div>
        </div>
     </div>
