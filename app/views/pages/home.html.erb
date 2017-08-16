@@ -46,7 +46,7 @@
       <h2>Find our warehouses:</h2>
           <div id="custom-search-input">
               <div class="input-group">
-                  <input type="text" class="form-control input-lg" placeholder="Paris" />
+                  <input type="text" class="form-control input-lg" id="input-user" placeholder="Type your address" />
                   <span class="input-group-btn">
                       <button class="btn btn-info btn-lg" type="button">
                           <i class="glyphicon glyphicon-search"></i>
@@ -57,5 +57,25 @@
       </div>
     </div>
 </div>
+
+<%= content_for(:after_js) do %>
+
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyD_RAkY8s72vyF-J80ulRyBuegrj_7yuN8"></script>
+
+  <script>
+    var flat_address = $('#input-user').get(0);
+
+    if (flat_address) {
+      var autocomplete = new google.maps.places.Autocomplete(flat_address, { types: ['geocode'] });
+      google.maps.event.addDomListener(flat_address, 'keydown', function(e) {
+        if (e.keyCode == 13) {
+          e.preventDefault(); // Do not submit the form on Enter.
+        }
+      });
+    }
+  </script>
+<% end %>
+
+
 
 
