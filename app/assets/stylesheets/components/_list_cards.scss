@@ -3,11 +3,13 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 65px;
+  top: 59px;
   right: 0;
   left: 0;
   z-index: 500;
   background-color: $light-gray;
+  box-shadow: 0 0.3px 0.3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 5px;
 }
 
 .search-title {
@@ -27,21 +29,21 @@
   // align-items: stretch; /* force items to take all flexbox height */
   // flex-wrap: wrap;
 
-  padding: 10px 15px 0 0;
-  width: 53%;
+  padding: 0 15px 0 0;
+  margin-top: 10px;
+  width: 45%;
   a:hover {
     text-decoration : none;
   }
   overflow: scroll;
-  max-height: 70vh;
+  height: calc(100vh - 203px);
 }
 
 .card-index {
   background-color: white;
-  padding: 10px 25px;
+  padding: 20px 45px 20px 25px;
   margin: 0 0 10px 0;
-  display: flex; /* HERE WE WANT A FLEWBOX BECAUSE WE ARE USING DEPLAY */
-  align-items: center;
+
   width: 100%;
   height: 100px;
   border-radius: 5px;
@@ -49,6 +51,12 @@
   color: $gray;
   font-size: 16px;
   text-shadow: 0 0px 0px rgba(0, 0, 0, 0.6);
+
+  // display: flex; /* HERE WE WANT A FLEWBOX BECAUSE WE ARE USING DEPLAY */
+  // align-items: center;
+  display: grid;
+  grid-template-column: 75% 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 .card-index:hover {
@@ -57,44 +65,50 @@
 }
 
 .storehouse-name {
-  flex: 0 0 20%;
+  // flex: 0 0 20%;
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
 }
 
 .storehouse-addresse {
   // flex: 0 0 auto;
-  flex-grow: 1;
-  padding-left: 10px;
+  // flex-grow: 1;
+  // padding-left: 10px;
+  grid-row: 3 / span 2;
+  grid-column: 1 / span 1;
 }
 
 .storehouse-capacity {
-  flex: 0 0 15%;
+  // flex: 0 0 15%;
+  // text-align: right;
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
   text-align: right;
 }
 
 .storehouse-day-price {
-  flex: 0 0 10%;
+  // flex: 0 0 10%;
+  // text-align: right;
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 1;
   text-align: right;
 }
 
-#map-index {
-  flex: 0 0 45%;
-  height: calc(100vh - 50px); /* or min-height */
-  position: sticky !important; /* !important to override Gmaps inline CSS */
-  top: 0 !important;
-  margin-top: 20px;
-  top: 65px;
-  right: 0;
-  left: 0;
-  down: 0;
+#map {
+  flex: 0 0 55%;
+  height: 78.5vh;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
 }
 
 .map_box {
   padding: 10px;
   color: $gray;
   display: flex;
+  width: 300px;
   flex-direction: column;
   justify-content: space-around;
-  width: 300px;
   h3, p {
     margin-left: 20px;
   }
@@ -106,7 +120,7 @@
   opacity: 1;
   width: 50%;
   margin: 20px 0;
-  margin-left: 25%;
+  margin-left: 30%;
 }
 
 .btn-map-box:hover {
@@ -114,5 +128,3 @@
     color: white;
     text-decoration : none;
   }
-
-
