@@ -9,7 +9,7 @@ class StorehousesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@storehouses) do |storehouse, marker|
       marker.lat storehouse.latitude
       marker.lng storehouse.longitude
-      # marker.infowindow render_to_string(partial: "/storehouses/map_box", locals: { storehouse: storehouse })
+      marker.infowindow render_to_string(partial: "/storehouses/map_box", locals: { storehouse: storehouse })
     end
   end
 
