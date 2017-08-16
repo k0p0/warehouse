@@ -1,3 +1,7 @@
+
+
+
+<% if current_user.id == @storehouse.user_id %>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -8,8 +12,6 @@
       <%= f.input :description, label: "Storehouse's description :" %>
       <%= f.input :capacity, label: "Storehouse's capacity (m3):" %>
       <%= f.input :day_price, label: "Storehouse's price per day (€):" %>
-
-
       <%= f.input :picture %>
       <%= f.input :picture_cache, as: :hidden %>
       <br>
@@ -19,3 +21,14 @@
     </div>
   </div>
 </div>
+<% else %>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-xs-12">
+<h1>This storehouse does not belong to you !</h1>
+<br>
+<%= link_to "Back to my storehouses", admin_storehouses_path(current_user), class: "btn-medium"  %>
+    </div>
+  </div>
+</div>
+<% end %>
