@@ -44,16 +44,10 @@
   <div class="searchbar container">
     <div class="title row">
       <h2>Find our warehouses:</h2>
-          <div id="custom-search-input">
-              <div class="input-group">
-                  <input type="text" class="form-control input-lg" id="input-user" placeholder="Type your address" />
-                  <span class="input-group-btn">
-                      <button class="btn btn-info btn-lg" type="button">
-                          <i class="glyphicon glyphicon-search"></i>
-                      </button>
-                  </span>
-              </div>
-          </div>
+        <%= form_tag "/storehouses", method: :get do %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag "search", class:'btn-medium' %>
+        <% end %>
       </div>
     </div>
 </div>
@@ -63,7 +57,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyD_RAkY8s72vyF-J80ulRyBuegrj_7yuN8"></script>
 
   <script>
-    var flat_address = $('#input-user').get(0);
+    var flat_address = $('#q').get(0);
 
     if (flat_address) {
       var autocomplete = new google.maps.places.Autocomplete(flat_address, { types: ['geocode'] });
