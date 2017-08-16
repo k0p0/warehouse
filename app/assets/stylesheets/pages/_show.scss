@@ -3,3 +3,10 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.fa {
+  color: black;
+  &:hover {
+    color: $orange;
+  }
+}
