@@ -25,10 +25,12 @@
 						<td with="5%" class="text-center"><i class="fa fa-user fa-2x"></i></td>
 						<td><%= @storehouse.user.name %> </td>
 					</tr>
+						<tr><td></td><td></td>
+					</tr>
 				</table>
 			</div>
 			<div class="flex-item">
-				<%= cl_image_tag @storehouse.picture.url, width: 500, height: 250, crop: :fill %>
+				<%= cl_image_tag @storehouse.picture.url, width: 400, height: 280, crop: :fill %>
 			</div>
 		</div>
 		<div class="show-flexbox">
