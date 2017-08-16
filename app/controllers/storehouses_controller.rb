@@ -4,7 +4,6 @@ class StorehousesController < ApplicationController
   before_action :set_storehouse, only: [ :show, :edit, :update]
 
   def index
-    # @storehouses = Storehouse.all
     @storehouses = Storehouse.where.not(latitude: nil, longitude: nil)
     @hash = Gmaps4rails.build_markers(@storehouses) do |storehouse, marker|
       marker.lat storehouse.latitude
@@ -40,7 +39,9 @@ class StorehousesController < ApplicationController
   end
 
   def destroy
-    @storehouse.destroy
+    if current_user.id == @storehouse.user_id
+    	@storehouse.destroy
+    end
     redirect_to storhouses_path
   end
 
