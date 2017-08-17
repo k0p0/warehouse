@@ -31,7 +31,7 @@
 
   margin-right: 25px;
   margin-top: 10px;
-  width: 45%;
+  width: 100%;
   a:hover {
     text-decoration : none;
   }
@@ -121,18 +121,7 @@
     text-decoration : none;
   }
 
-.btn-search-bar-index{
-  background-color: white;
-  padding-right: 0;
-  padding-left: 64px;
-  padding-top: 0;
-  color: $orange;
-  background-color: rgba(0, 0, 0, 0);
-}
-.btn-search-bar-index:hover{
-  font-weight: bold;
-  color: $orange;
-}
+
 
 #map {
   flex: 0 0 55%;
@@ -152,25 +141,36 @@
   height: 40px;
 
   display: flex;
-  text-align: center;
-  justify-content: space-evenly;
-  flex-direction: row;
+  justify-content: space-between;
+
+  #q {
+    border: black solid 0px;
+    // p h3 h2 h1 {
+    //   color-text: $orange;
+    // }
+    padding-top: 3px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-left: 15px;
+    width: 100%;
+  }
+
+  #q:focus {
+    outline-width: 0;
+    color: black;
+  }
 }
 
-input#q {
-  border: black solid 0px;
-  // p h3 h2 h1 {
-  //   color-text: $orange;
-  // }
-  padding-top: 8px;
+.btn-search-bar-index{
+  background-color: white;
+  padding: 6px 17px 0px 0px;
+  color: $orange;
   background-color: rgba(0, 0, 0, 0);
-  padding-left: 15px;
+}
+.btn-search-bar-index:hover{
+  font-weight: bold;
+  color: $orange;
 }
 
-input#q:focus {
-  outline-width: 0;
-  color: black;
-}
 
 
 
