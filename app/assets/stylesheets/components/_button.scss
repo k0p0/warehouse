@@ -14,6 +14,11 @@
   color: $orange;
 }
 
+.btn-primary {
+  background-color: #4267B2;
+  border-radius: 50px;
+}
+
 .book {
   color: black;
   background-color: #F4F4F4;
@@ -31,6 +36,10 @@
   opacity: 1;
   background: #3ac162;
   text-decoration: none;
+  color: white;
+}
+
+#fb-connect {
   color: white;
 }
 

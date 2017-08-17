@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     resources :storehouses, only: [:index]
   end
   namespace :admin do
-    resources :reservations, only: [:index]
+    resources :reservations, only: [:index] do
+      member do
+        get "accept", to: "reservations#accept"
+        get "decline", to: "reservations#decline"
+      end
+    end
   end
   resources :reservations, only: [:destroy]
   resources :storehouses do
