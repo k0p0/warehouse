@@ -1,23 +1,23 @@
 #team {
-  background-color: #E9E9E8;
-  height: 100vh;
-  padding-top: 80px;
+  h1 {
+    margin:20vh 4vh 10vh 4vh;
+  }
+  .img-circle {
+    height: 150px;
+    width: 150px;
+  }
+  .profiles {
+    // display: flex;
+    // align-item: center;
+    // justify-content: space-between;
+    margin-right: 100px;
+    margin-left: 100px;
+    padding-top: 30px;
+  }
+  .about-content i {
+    color: $orange;
+  }
 }
 
-.img-circle {
-  height: 150px;
-  width: 150px;
-}
 
-.profiles {
-  display: flex;
-  align-item: center;
-  justify-content: space-between;
-  margin-right: 100px;
-  margin-left: 100px;
-  padding-top: 30px;
-}
 
-.about-content i {
-  color: $orange;
-}
