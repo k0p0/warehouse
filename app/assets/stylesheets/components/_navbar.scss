@@ -15,6 +15,17 @@
   z-index: 10000;
 }
 
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  .navbar-wagon-link {
+    color: white;
+    font-weight: bold;
+  }
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 40px;

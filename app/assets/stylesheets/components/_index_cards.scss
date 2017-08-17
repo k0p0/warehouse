@@ -94,7 +94,27 @@
   text-align: right;
 }
 
+// CONFLICT LOST SELECTOR
+  // display: flex;
+  // text-align: center;
+  // justify-content: space-evenly;
+  // flex-direction: row;
 
+  input#q {
+    border: black solid 0px;
+    // p h3 h2 h1 {
+    //   color-text: $orange;
+    // }
+    padding-top: 8px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-left: 15px;
+  }
+
+  input#q:focus {
+    outline-width: 0;
+    color: black;
+  }
+}
 
 
 
