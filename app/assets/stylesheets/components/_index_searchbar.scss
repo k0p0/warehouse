@@ -1,0 +1,40 @@
+
+#card-with-search-bar {
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  margin: 10px 0 17px 9%;
+  width: 80%;
+  height: 40px;
+
+  display: flex;
+  justify-content: space-between;
+
+  #q {
+    border: black solid 0px;
+    // p h3 h2 h1 {
+    //   color-text: $orange;
+    // }
+    padding-top: 3px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-left: 15px;
+    width: 100%;
+  }
+
+  #q:focus {
+    outline-width: 0;
+    color: black;
+  }
+}
+
+.btn-search-bar-index{
+  background-color: white;
+  padding: 2px 17px 0px 0px;
+  color: $orange;
+  background-color: rgba(0, 0, 0, 0);
+}
+.btn-search-bar-index:hover{
+  font-weight: bold;
+  color: $orange;
+}
