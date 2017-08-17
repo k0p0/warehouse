@@ -1,5 +1,4 @@
 <div class="container">
-	<div class="row">
 		<h1 class="text-center"><%= @storehouse.name %></h1>
 		<br>
 		<div class="show-flexbox">
@@ -29,6 +28,7 @@
 					</tr>
 				</table>
 			</div>
+
 			<div class="flex-item">
 				<%= cl_image_tag @storehouse.picture.url, width: 400, height: 280, crop: :fill %>
 			</div>
@@ -41,8 +41,8 @@
 			<%= f.button :submit, "Book" , class: "btn-medium book" %>
 			<% end %>
 		</div>
-	</div>
 </div>
+<hr>
 <div class="container text-center">
 	<div id="map" style="height: 500px">
 	</div>

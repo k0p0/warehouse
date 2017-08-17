@@ -1,32 +1,38 @@
 <div class="container">
   <div class="row">
-      <h1 class="header-color">My Reservations</h1>
-
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Storehouse</th>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Duration</th>
-            <th>Total price</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @reservations.order("starts_on ASC").each do |resa| %>
-          <tr>
-            <td><strong><%= resa.storehouse.name %></strong></td>
-            <td><%= resa.starts_on %></td>
-            <td><%= resa.ends_on %></td>
-            <td><% duration = (resa.ends_on - resa.starts_on).to_i %><%= duration %> days</td>
-            <td><% total = duration * resa.storehouse.day_price %><%= total %> €</td>
-            <td><%= resa.status %></td>
-            <td><%= link_to '<i class="fa fa-trash-o fa-lg"></i>'.html_safe , reservation_path(resa), method: :delete, data: { confirm: 'Are you sure?' }%></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+    <h1 class="header-color">My reservations</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Storehouse</th>
+          <th>Start date</th>
+          <th>End date</th>
+          <th>Duration</th>
+          <th>Total price</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reservations.order("starts_on ASC").each do |resa| %>
+        <tr>
+          <td><strong><%= resa.storehouse.name %></strong></td>
+          <td><%= resa.starts_on %></td>
+          <td><%= resa.ends_on %></td>
+          <td><% duration = (resa.ends_on - resa.starts_on).to_i %><%= duration %> days</td>
+          <td><% total = duration * resa.storehouse.day_price %><%= total %> €</td>
+          <% case resa.status %>
+            <% when "Pending" then %>
+             <td> <div class="status-pending"> <%= resa.status %> </div></td>
+            <% when "Declined" then %>
+              <td> <div class="status-refused"> <%= resa.status %> </div></td>
+            <% when "Accepted" then %>
+              <td> <div class="status-accepted"> <%= resa.status %> </div></td>
+          <% end%>
+          <td><%= link_to '<i class="fa fa-trash-o fa-lg"></i>'.html_safe , reservation_path(resa), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
+</div>

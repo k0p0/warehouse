@@ -1,22 +1,19 @@
 class ReservationsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_reservation, only: [:destroy]
+  before_action :set_reservation, only: [:destroy, :update]
 
   def index
     @reservations = Reservation.all
   end
 
   def show
-    # @reservation = Reservation.find(params[:storehouse_id])
-    # @reservation = Reservation.new
   end
 
   def new
     @storehouse = Storehouse.find(params[:id])
     @reservation = Reservation.new
   end
-
 
   def create
     @reservation = Reservation.new
@@ -26,6 +23,7 @@ class ReservationsController < ApplicationController
         @reservation.starts_on = starts_on
         @reservation.ends_on = ends_on
         @reservation.user = current_user
+        @reservation.status = "Pending"
         @reservation.storehouse = Storehouse.find(params[:storehouse_id])
     else
       @storehouse = Storehouse.find(params[:id])

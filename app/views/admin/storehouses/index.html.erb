@@ -1,27 +1,66 @@
 <div class="container">
   <div class="row">
-      <h1 class="header-color">My Storehouses</h1>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th colspan="3">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @storehouses.order("name ASC").each do |storehouse| %>
-          <tr>
-            <td><strong><%= storehouse.name %></strong></td>
-            <td><%= storehouse.address %></td>
-            <td><%= link_to '<i class="fa fa-eye fa-lg"></i>'.html_safe, storehouse %></td>
-            <td><%= link_to '<i class="fa fa-pencil-square-o fa-lg"></i>'.html_safe, edit_storehouse_path(storehouse) %></td>
-            <td><%= link_to '<i class="fa fa-trash-o fa-lg"></i>'.html_safe, storehouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <br>
-       <%= link_to 'New storehouse', new_storehouse_path, class: "btn-medium book" %>
-    </div>
+    <h1 class="header-color">My storehouses</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th colspan="3">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @storehouses.order("name ASC").each do |storehouse| %>
+        <tr>
+          <td><strong><%= storehouse.name %></strong></td>
+          <td><%= storehouse.address %></td>
+          <td><%= link_to '<i class="fa fa-eye fa-lg"></i>'.html_safe, storehouse %></td>
+          <td><%= link_to '<i class="fa fa-pencil-square-o fa-lg"></i>'.html_safe, edit_storehouse_path(storehouse) %></td>
+          <td><%= link_to '<i class="fa fa-trash-o fa-lg"></i>'.html_safe, storehouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+    <%= link_to 'New storehouse', new_storehouse_path, class: "btn-medium book" %>
   </div>
+  <hr>
+  <div class="row">
+    <h1 class="header-color">My reservations requests</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Storehouse</th>
+          <th>Start date</th>
+          <th>End date</th>
+          <th>Duration</th>
+          <th>Total price</th>
+          <th>Client</th>
+          <th>Status</th>
+          <th colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reservations.each do |resa| %>
+        <tr>
+          <td><strong><%= resa.storehouse.name %></strong></td>
+          <td><%= resa.starts_on %></td>
+          <td><%= resa.ends_on %></td>
+          <td><% duration = (resa.ends_on - resa.starts_on).to_i %><%= duration %> days</td>
+          <td><% total = duration * resa.storehouse.day_price %><%= total %> €</td>
+          <td><%= resa.user_id %></td>
+          <td><%= resa.status %></td>
+          <% if resa.status == "Pending" %>
+            <td><%= link_to '<i class="fa fa-times fa-lg"></i>'.html_safe, decline_admin_reservation_path(resa)  %></td>
+            <td><%= link_to '<i class="fa fa-check fa-lg"></i>'.html_safe, accept_admin_reservation_path(resa) %></td>
+          <% elsif resa.status == "Accepted" %>
+            <td><%= link_to '<i class="fa fa-times fa-lg"></i>'.html_safe, decline_admin_reservation_path(resa)  %></td>
+          <% elsif resa.status == "Declined" %>
+            <td><%= link_to '<i class="fa fa-check fa-lg"></i>'.html_safe, accept_admin_reservation_path(resa) %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
