@@ -5,3 +5,32 @@
 .header-color {
   color: $orange;
 }
+
+.status-pending {
+  color: $orange;
+  font-weight: bold;
+}
+
+.status-declined {
+  color: $red;
+  font-weight: bold;
+}
+
+.status-accepted {
+  color: $green;
+  font-weight: bold;
+}
+
+.fa-times {
+  color: $red;
+  &:hover {
+    color: $red;
+  }
+}
+
+.fa-check {
+  color: $green;
+  &:hover {
+    color: $green;
+  }
+}

@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row">
+
 		<h1 class="text-center header-color"><%= @storehouse.name %></h1>
 		<br>
 		<div class="show-flexbox">
@@ -29,6 +29,7 @@
 					</tr>
 				</table>
 			</div>
+
 			<div class="flex-item">
 				<%= cl_image_tag @storehouse.picture.url, width: 400, height: 280, crop: :fill %>
 			</div>
@@ -41,8 +42,8 @@
 			<%= f.button :submit, "Book" , class: "btn-medium book" %>
 			<% end %>
 		</div>
-	</div>
 </div>
+<hr>
 <div class="container text-center">
   <div id="map" style="height: 500px"></div>
   <% content_for(:after_js) do %>
@@ -306,34 +307,6 @@
     </script>
   <% end %>
   </div>
-<!-- 	<div id="map" style="height: 500px">
-	</div> -->
 </div>
-
-<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhH93WHb1203Y_2uA2TFiiUKxKt-e--fY&callback=initMap"
-type="text/javascript"></script>
-<script>
-let address = document.getElementById("address").innerText;
-let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}`;
-fetch(url)
-.then(response => response.json())
-.then((data) => {
-const lat = data.results[0].geometry.location.lat;
-const lng = data.results[0].geometry.location.lng;
-const map = new google.maps.Map(document.getElementById('map'), {
-center: { lat: lat, lng: lng },
-zoom: 15  // Change this value from 0 to 18
-});
-const marker = new google.maps.Marker({
-map: map,
-position: { lat: lat, lng: lng }
-});
-});
-</script>
-<script>
-if(window.location.href.substr(-2) !== "?r") {
-window.location = window.location.href + "?r";
-}
-</script> -->
 
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyD_RAkY8s72vyF-J80ulRyBuegrj_7yuN8"></script>

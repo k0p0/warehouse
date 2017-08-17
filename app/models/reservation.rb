@@ -3,4 +3,5 @@ class Reservation < ApplicationRecord
   belongs_to :storehouse
   validates :starts_on, presence: true
   validates :ends_on, presence: true
+  validates :status, inclusion: { in: ["Pending" , "Accepted", "Declined"] }
 end
