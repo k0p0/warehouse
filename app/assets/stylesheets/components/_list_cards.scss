@@ -31,7 +31,7 @@
 
   margin-right: 25px;
   margin-top: 10px;
-  width: 45%;
+  width: 100%;
   a:hover {
     text-decoration : none;
   }
@@ -151,7 +151,7 @@
     padding-top: 3px;
     background-color: rgba(0, 0, 0, 0);
     padding-left: 15px;
-
+    width: 100%;
   }
 
   #q:focus {
@@ -162,8 +162,7 @@
 
 .btn-search-bar-index{
   background-color: white;
-  padding-right: 17px;
-  padding-top: 6px;
+  padding: 6px 17px 0px 0px;
   color: $orange;
   background-color: rgba(0, 0, 0, 0);
 }
