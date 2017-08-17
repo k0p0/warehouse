@@ -1,10 +1,20 @@
 .stats-home {
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 50px;
   background-color: $light-gray;
 }
 
+.searchbar {
+  padding-top: 30px;
+  h2 {
+    color: white;
+    padding-bottom: 10px !important;
+    padding-top: 80px;
+  }
+}
+
 .customers-home {
+  padding-top: 30px;
   padding-bottom: 50px;
   background-color: #E9E9E8;
 }
@@ -44,6 +54,10 @@
 
 .icon {
   font-size: 50px;
+}
+
+.stat i {
+  color: $orange;
 }
 
 

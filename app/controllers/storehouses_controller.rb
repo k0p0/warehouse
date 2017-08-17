@@ -4,8 +4,12 @@ class StorehousesController < ApplicationController
   before_action :set_storehouse, only: [ :show, :edit, :update]
 
   def index
-    @storehouses = Storehouse.where.not(latitude: nil, longitude: nil)
-    @hash = Gmaps4rails.build_markers(@storehouses) do |storehouse, marker|
+    if params[:q] == nil
+      @storehouses = Storehouse.where.not(latitude: nil, longitude: nil)
+    else
+      @storehouses = Storehouse.near("#{params[:q]}", 10)
+    end
+      @hash = Gmaps4rails.build_markers(@storehouses) do |storehouse, marker|
       marker.lat storehouse.latitude
       marker.lng storehouse.longitude
       marker.infowindow render_to_string(partial: "/storehouses/map_box", locals: { storehouse: storehouse })
@@ -14,6 +18,10 @@ class StorehousesController < ApplicationController
 
   def show
      @reservation = Reservation.new
+     @hash = Gmaps4rails.build_markers(@storehouse) do |storehouse, marker|
+      marker.lat storehouse.latitude
+      marker.lng storehouse.longitude
+    end
   end
 
   def new
