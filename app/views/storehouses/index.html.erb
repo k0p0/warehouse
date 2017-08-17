@@ -3,14 +3,12 @@
 </div>
 <div class="main-container">
   <div class="cards-container">
-
-        <%= form_tag "/storehouses", id:'card-with-search-bar', method: :get do %>
-          <%= text_field_tag(:q)%>
-          <%= submit_tag "search", class:'btn btn-search-bar-index' do %>
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <%end%>
-        <% end %>
-
+    <%= form_tag "/storehouses", id:'card-with-search-bar', method: :get do %>
+      <%= text_field_tag(:q)%>
+      <%= submit_tag "search", class:'btn btn-search-bar-index' do %>
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <%end%>
+    <% end %>
     <% @storehouses.order("name ASC").each do |storehouse| %>
       <%= link_to storehouse_path(storehouse) do%>
         <div class="card-index">
