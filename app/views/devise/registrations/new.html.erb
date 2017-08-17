@@ -20,8 +20,8 @@
           <%= f.button :submit, "Sign up", class: " btn btn-primary" %>
           <%= link_to "Sign in",new_session_path(resource_name), class:"btn btn-primary" %>
           <%- resource_class.omniauth_providers.each do |provider| %>
-            <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary" %>
-        <% end -%>
+                  <%= link_to "<i id='fb-connect' class='fa fa-facebook-square fa-lg'></i> connect".html_safe, omniauth_authorize_path(resource_name, provider), class: "btn btn-primary"%>
+                <% end -%>
         </div>
       <% end %>
 
