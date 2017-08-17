@@ -29,7 +29,11 @@
             <% when "Accepted" then %>
               <td> <div class="status-accepted"> <%= resa.status %> </div></td>
           <% end%>
+          <% if resa.status == "Accepted" %>
+           <td><%= link_to '<i class="fa fa-credit-card fa-lg"></i>'.html_safe %></td>
+          <% else %>
           <td><%= link_to '<i class="fa fa-trash-o fa-lg"></i>'.html_safe , reservation_path(resa), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+          <% end %>
         </tr>
         <% end %>
       </tbody>
