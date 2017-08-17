@@ -1,3 +1,5 @@
+<%= content_for(:navbar_class, "navbar-home") %>
+
 <div class="home">
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.chicagonow.com/small-biz-blog/files/2017/05/warehouse.jpg');">
     <div class="banner-content">
@@ -5,49 +7,55 @@
       <p>Maximise your warehouse</p>
       <%= link_to 'See our warehouses', storehouses_path, class: "btn btn-medium btn-lg" %>
     </div>
-    <div class="searchbar container" id="bar">
+    <div class="searchbar container">
       <div class="title row">
         <h2>Find our warehouses:</h2>
-          <%= form_tag "/storehouses", method: :get do %>
-          <%= text_field_tag(:q) %>
-          <%= submit_tag "search", class:'btn-medium' %>
+            <%= form_tag "/storehouses", id: "banner-with-search-bar", method: :get do %>
+            <%= text_field_tag(:q) %>
+            <%= submit_tag "search", class:'btn btn-search-bar-home' %>
           <% end %>
         </div>
       </div>
   </div>
 
-  <div class="text-center">
+    <div class="text-center">
       <div class="stats-home">
         <div class="title row">
           <h2>Why choose us ?</h2>
         </div>
-          <div class="row stats">
-          <div class="stat">
+          <div class="row stats ">
+          <div class="stat col-xs-12 col-md-4">
             <i class="fa fa-globe icon"></i>
             <h3><%= Storehouse.count %> warehouses</h3>
          </div>
-          <div class="stat">
+          <div class="stat col-xs-12 col-md-4">
             <i class="fa fa-expand icon"></i>
             <h3><%= Storehouse.sum("capacity") %> m&sup3; availables</h3>
          </div>
-          <div class="stat">
-            <i class="fa fa-eur icon"></i>
-            <h3>around €<%= Storehouse.average("day_price").round %>/day </h3>
-         </div>
-         </div>
+        <div class="stat col-xs-12 col-md-4">
+          <i class="fa fa-eur icon"></i>
+          <h3>around €<%= (Storehouse.average("day_price")/Storehouse.sum("capacity")).round(2) %>/m&sup3 </h3>
+        </div>
       </div>
+    </div>
 
     <div class="customers-home">
       <div class="title row">
         <h2>They work with us: </h2>
       </div>
-      <div class="customers">
-        <ul class="list-unstyled list-inline">
-          <li><img alt="XPO" src="https://www.nyse.com/publicdocs/nyse/events/images/XPO_web_1920.png" class="customer-img" /></li>
-          <li><img alt="Bolloré" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bollore_Logistics_Logo.png/1200px-Bollore_Logistics_Logo.png" class="customer-img"/></li>
-          <li><img alt="DB Schenker" src="http://www.anim-16.com/local/cache-vignettes/L260xH158/arton231-16821.png?1501528372" class="customer-img" /></li>
-          <li><img alt="Geodis" src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fb/Geodis.svg/768px-Geodis.svg.png" class="customer-img" /></li>
-        </ul>
+      <div class="customers row">
+          <div class="stat col-xs-12 col-sm-6 col-md-3">
+          <img alt="Bolloré" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bollore_Logistics_Logo.png/600px-Bollore_Logistics_Logo.png" class="customer-img"/>
+          </div>
+          <div class="stat col-xs-12 col-sm-6 col-md-3">
+          <img alt="DB Schenker" src="http://www.anim-16.com/local/cache-vignettes/L260xH158/arton231-16821.png?1501528372" class="customer-img" />
+          </div>
+          <div class="stat col-xs-12 col-sm-6 col-md-3">
+          <img alt="Geodis" src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fb/Geodis.svg/768px-Geodis.svg.png" class="customer-img" />
+          </div>
+          <div class="stat col-xs-12 col-sm-6 col-md-3">
+          <img alt="XPO" src="https://www.nyse.com/publicdocs/nyse/events/images/XPO_web_1920.png" class="customer-img" />
+          </div>
       </div>
     </div>
   </div>
