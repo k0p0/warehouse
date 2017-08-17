@@ -3,6 +3,14 @@
 </div>
 <div class="main-container">
   <div class="cards-container">
+
+        <%= form_tag "/storehouses", id:'card-with-search-bar', method: :get do %>
+          <%= text_field_tag(:q)%>
+          <%= submit_tag "search", class:'btn btn-search-bar-index' do %>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <%end%>
+        <% end %>
+
     <% @storehouses.order("name ASC").each do |storehouse| %>
       <%= link_to storehouse_path(storehouse) do%>
         <div class="card-index">
@@ -15,7 +23,7 @@
     <% end %>
   </div>
   <div id="map"></div>
-  <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=AIzaSyDhH93WHb1203Y_2uA2TFiiUKxKt-e--fY&callback=initMap" %>
+  <%#= javascript_include_tag "https://maps.google.com/maps/api/js?key=AIzaSyDhH93WHb1203Y_2uA2TFiiUKxKt-e--fY&callback=initMap" %>
   <% content_for(:after_js) do %>
     <script>
       $(document).ready(function() {
@@ -281,3 +289,20 @@
   </div>
 </div>
 
+<%= content_for(:after_js) do %>
+
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyD_RAkY8s72vyF-J80ulRyBuegrj_7yuN8"></script>
+
+  <script>
+    var flat_address = $('#q').get(0);
+
+    if (flat_address) {
+      var autocomplete = new google.maps.places.Autocomplete(flat_address, { types: ['geocode'] });
+      google.maps.event.addDomListener(flat_address, 'keydown', function(e) {
+        if (e.keyCode == 13) {
+          e.preventDefault(); // Do not submit the form on Enter.
+        }
+      });
+    }
+  </script>
+<% end %>

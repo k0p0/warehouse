@@ -8,7 +8,7 @@
   left: 0;
   z-index: 500;
   background-color: $light-gray;
-  box-shadow: 0 0.3px 0.3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   margin-bottom: 5px;
 }
 
@@ -19,7 +19,7 @@
 .main-container {
   display: flex;
   justify-content: space-around;
-  padding: 72px 15px;
+  padding: 72px 10%;
   position: fixed;
   width: 100%;
 }
@@ -29,7 +29,7 @@
   // align-items: stretch; /* force items to take all flexbox height */
   // flex-wrap: wrap;
 
-  padding: 0 15px 0 0;
+  margin-right: 25px;
   margin-top: 10px;
   width: 45%;
   a:hover {
@@ -41,7 +41,7 @@
 
 .card-index {
   background-color: white;
-  padding: 20px 45px 20px 25px;
+  padding: 20px 25px 20px 25px;
   margin: 0 0 10px 0;
 
   width: 100%;
@@ -55,7 +55,7 @@
   // display: flex; /* HERE WE WANT A FLEWBOX BECAUSE WE ARE USING DEPLAY */
   // align-items: center;
   display: grid;
-  grid-template-column: 75% 1fr;
+  grid-template-column: 80% 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
@@ -94,14 +94,6 @@
   text-align: right;
 }
 
-#map {
-  flex: 0 0 55%;
-  height: 78.5vh;
-  width: 100%;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-  margin-top: 10px;
-}
-
 .map_box {
   padding: 10px;
   color: $gray;
@@ -128,3 +120,92 @@
     color: white;
     text-decoration : none;
   }
+
+
+
+#map {
+  flex: 0 0 55%;
+  height: 78.5vh;
+  width: 100%;
+  box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.4);
+  margin-top: 10px;
+}
+
+#card-with-search-bar {
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  margin: 10px 0 17px 9%;
+  width: 80%;
+  height: 40px;
+
+  display: flex;
+  justify-content: space-between;
+
+  #q {
+    border: black solid 0px;
+    // p h3 h2 h1 {
+    //   color-text: $orange;
+    // }
+    padding-top: 3px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-left: 15px;
+
+  }
+
+  #q:focus {
+    outline-width: 0;
+    color: black;
+  }
+}
+
+.btn-search-bar-index{
+  background-color: white;
+  padding-right: 17px;
+  padding-top: 6px;
+  color: $orange;
+  background-color: rgba(0, 0, 0, 0);
+}
+.btn-search-bar-index:hover{
+  font-weight: bold;
+  color: $orange;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
