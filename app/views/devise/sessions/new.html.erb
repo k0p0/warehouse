@@ -12,19 +12,16 @@
           <div class="form-actions">
                 <%= f.button :submit, "Log in", class: "btn btn-primary" %>
           </div>
-          <br>
-          <div>
+          <p style="padding-top: 8px">or</p>
+          <div class="">
 
                 <%= link_to "Sign up",new_registration_path(resource_name), class: "btn btn-primary" %>
-                <%= link_to "Forgot your password?", new_password_path(resource_name), class: "btn btn-primary" %>
-          </div>
-          <br>
-          <div>
-            <%- resource_class.omniauth_providers.each do |provider| %>
-                  <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary" %>
+                <%- resource_class.omniauth_providers.each do |provider| %>
+                  <%= link_to "<i id='fb-connect' class='fa fa-facebook-square fa-lg'></i> connect".html_safe, omniauth_authorize_path(resource_name, provider), class: "btn btn-primary"%>
                 <% end -%>
-          </div>
+                <%= link_to "lost password ?", new_password_path(resource_name), class: "btn btn-primary" %>
 
+          </div>
       <% end %>
     </div>
   </div>
