@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row show-flexbox review-form">
   <div class="col-sm-4">
     <%= simple_form_for([ @storehouse, @review ]) do |form| %>
       <%= form.input :rating, collection: 1..5 %>
       <%= form.input :content, as: :text %>
-      <%= form.button :submit %>
+      <%= form.button :submit, class:'btn-medium book' %>
     <% end %>
   </div>
 </div>
