@@ -34,13 +34,13 @@
 #banner-with-search-bar {
   margin-top: 30px;
   background-color: white;
-  border: solid $orange 4px;
+  border: solid $orange 2px;
   font-weight: lighter;
-  border-radius: 50px;
+  border-radius: 10px;
   margin-left: 30%;
   margin-right: 30%;
-  padding-right: 2%;
-  padding-left: 2%;
+  // padding-right: 2%;
+  // padding-left: 2%;
   height: 7vh;
   display: flex;
   input#q {
@@ -53,8 +53,9 @@
   }
   .btn-search-bar-home {
   background-color: white;
+  border-radius: 0 10px 10px 0;
   color: $orange;
-  border-left: solid 4px $orange;
+  border-left: solid 2px $orange;
   }
   .btn-search-bar-home:hover{
   font-weight: bold;

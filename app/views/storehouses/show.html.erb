@@ -1,34 +1,36 @@
+<div class="search-title-box">
+  <h1 class="search-title header-color"><%= @storehouse.name %></h1>
+</div>
 <div class="container show">
 	<div class="row">
-		<h1 class="text-center header-color"><%= @storehouse.name %></h1>
 		<br>
 		<div class="show-flexbox">
 			<div class="show-flex-item-one">
 				<table class="table">
 					<tr>
 						<td with="5%" class="text-center"><i class="fa fa-map-marker fa-2x"></i></td>
-						<td id="address"><%= @storehouse.address %></td>
+						<td class="padding-top-on-text" id="address"><%= @storehouse.address %></td>
 					</tr>
 					<tr>
 						<td with="5%" class="text-center"><i class="fa fa-archive fa-2x"></i></td>
-						<td><%= @storehouse.capacity %> m&sup3; available</td>
+						<td class="padding-top-on-text"><%= @storehouse.capacity %> m&sup3; available</td>
 					</tr>
 					<tr>
 						<td with="5%" class="text-center"><i class="fa fa-euro fa-2x"></i></td>
-						<td><%= @storehouse.day_price %> € per day</td>
+						<td class="padding-top-on-text"><%= @storehouse.day_price %> € per day</td>
 					</tr>
 					<tr>
 						<td with="5%" class="text-center"><i class="fa fa-info fa-2x"></i></td>
-						<td><%= @storehouse.description %> </td>
+						<td class="padding-top-on-text"><%= @storehouse.description %> </td>
 					</tr>
 					<tr>
 						<td with="5%" class="text-center"><i class="fa fa-user fa-2x"></i></td>
-						<td><%= @storehouse.user.name %> </td>
+						<td class="padding-top-on-text"><%= @storehouse.user.name %> </td>
 					</tr>
           <tr>
             <td with="5%" class="text-center"> <a href="#reviews"><i class="fa fa-trophy fa-2x"></i></a></td>
             <% if @storehouse.reviews.blank? %>
-            <td>No ratings</td>
+            <td class="padding-top-on-text">No ratings</td>
             <% else %>
             <td>
 
@@ -40,6 +42,7 @@
               <% end %>
 
             </td>
+
             <% end %>
           </tr>
 						<tr><td></td><td></td>
@@ -47,7 +50,7 @@
 				</table>
 			</div>
 
-			<div class="show-flex-item">
+			<div class="show-flex-item-picture">
 				<% if @storehouse.picture.url.blank? %>
 					<%= cl_image_tag "http://res.cloudinary.com/lmdn/image/upload/v1503047039/1087lc01_lvtohq.jpg" %>
 				<% else  %>
@@ -67,7 +70,7 @@
 </div>
 
 
-<div class="container text-center">
+
   <div id="map" style="height: 500px"></div>
   <% content_for(:after_js) do %>
     <script>
@@ -347,7 +350,7 @@
 
   <% end %>
   </div>
-</div>
+
 
 <div id="reviews">
   <div class="container text-center">
