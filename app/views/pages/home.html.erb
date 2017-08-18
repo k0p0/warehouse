@@ -10,7 +10,7 @@
       <div class="title row">
         <h2>Find your nearest warehouse:</h2>
             <%= form_tag "/storehouses", id: "banner-with-search-bar", method: :get do %>
-            <%= text_field_tag :q, nil, placeholder: "Type your address" %>
+            <%= text_field_tag :q, nil, placeholder: "Type your address", autofocus: true %>
             <%= submit_tag "search", class:'btn btn-search-bar-home' %>
           <% end %>
         </div>
