@@ -1,7 +1,7 @@
 class StorehousesController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_storehouse, only: [ :show, :edit, :update]
+  before_action :set_storehouse, only: [ :show, :edit, :update, :destroy]
 
   def index
     if params[:q] == nil
@@ -52,7 +52,7 @@ class StorehousesController < ApplicationController
     if current_user.id == @storehouse.user_id
       @storehouse.destroy
     end
-    redirect_to storhouses_path
+    redirect_to admin_storehouses_path
   end
 
   private
