@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   resources :reservations, only: [:destroy]
   resources :storehouses do
+    resources :reviews, only: :create
     resources :reservations
   end
   get 'about_us', to: 'pages#about_us'
