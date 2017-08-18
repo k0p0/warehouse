@@ -2,13 +2,24 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 5%;
 }
 
 .show-flex-item-one {
   flex: 1 0 auto;
+  max-width: 550px;
+  margin: 1.5%;
+  margin-bottom: -5px;
+  padding-top: 2%;
+  .padding-top-on-text {
+    padding-top: 14px;
+  }
 }
-.show-flex-item {
+.show-flex-item-picture {
+
   flex: 0 0 40%;
+  margin: 1.5%;
 }
 
 .fa {
@@ -19,13 +30,11 @@
 }
 
 #map {
-  margin-bottom: 10px;
+  margin: 10px 2%;
 }
 
 .show {
-  h1 {
-  margin-top: 13vh;
-  }
+  margin-top: 120px;
 }
 
 .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
