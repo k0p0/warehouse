@@ -32,7 +32,21 @@
     text-decoration: line-through;
 }
 
-#show {
-  margin-left: 200px;
+#reviews {
+  margin-bottom: 20px;
+  .container {
+  padding-left: 15%;
+  padding-right: 15%;
+  }
+
+  .td-rating {
+  border-right: solid 1px gray;
+  }
+  .fa-star {
+    color: $orange;
+  }
 }
 
+.review-form {
+  margin-bottom: 20px;
+}
