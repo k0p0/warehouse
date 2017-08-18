@@ -27,7 +27,11 @@
 					</tr>
           <tr>
             <td with="5%" class="text-center"><i class="fa fa-trophy fa-2x"></i></td>
+            <% if @storehouse.reviews.blank? %>
+            <td>No ratings</td>
+            <% else %>
             <td><%= @storehouse.reviews.average("rating").round(1) %>/5 </td>
+            <% end %>
           </tr>
 						<tr><td></td><td></td>
 					</tr>
@@ -53,35 +57,6 @@
 
 </div>
 
-
-<h2>
-  <%= pluralize @storehouse.reviews.size, "review" %>
-</h2>
-
-<div id="reviews">
-  <% if @storehouse.reviews.blank? %>
-    Be the first to leave a review for <%= @storehouse.name %>
-  <% else %>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>Content</th>
-      <th>Rating</th>
-    </tr>
-  </thead>
-    <% @storehouse.reviews.each do |review| %>
-      <tbody>
-      <tr>
-      <td><%= review.content %></td>
-      <td><%= review.rating %></td>
-      </tr>
-    <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</div>
-
-<%= render 'reviews/form', storehouse: @storehouse, review: @review %>
 
 <div class="container text-center">
   <div id="map" style="height: 500px"></div>
@@ -364,5 +339,38 @@
   <% end %>
   </div>
 </div>
+
+<div class="container text-center">
+  <h2>
+    <%= pluralize @storehouse.reviews.size, "review" %>
+  </h2>
+
+  <div id="reviews">
+    <% if @storehouse.reviews.blank? %>
+      Be the first to leave a review for <%= @storehouse.name %>
+    <% else %>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Content</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+      <% @storehouse.reviews.each do |review| %>
+        <tbody>
+        <tr>
+        <td><%= review.content %></td>
+        <td><%= review.rating %></td>
+        </tr>
+      <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+
+<%= render 'reviews/form', storehouse: @storehouse, review: @review %>
+
 
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyD_RAkY8s72vyF-J80ulRyBuegrj_7yuN8"></script>
