@@ -3,7 +3,7 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
 }
 
 .show-flex-item-one {
@@ -17,10 +17,29 @@
   }
 }
 .show-flex-item-picture {
-
   flex: 0 0 40%;
   margin: 1.5%;
+  img {
+    max-width: 500px;
+  }
+  @media (max-width: 600px) and (min-width: 500px) {
+    img {
+      max-width: 490px;
+    }
+  }
+
+  @media (max-width: 500px) and (min-width: 450px){
+    img {
+      max-width: 440px;
+    }
+  }
+  @media (max-width: 450px){
+    img {
+      max-width: 380px;
+    }
+  }
 }
+
 
 .fa {
   color: black;

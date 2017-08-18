@@ -33,14 +33,12 @@
             <td class="padding-top-on-text">No ratings</td>
             <% else %>
             <td>
-
               <% (@storehouse.reviews.average("rating").round(0).to_i).times do %>
                 <i class='fa fa-star'></i>
               <% end %>
               <% (5 - @storehouse.reviews.average("rating").round(0).to_i).times do %>
                 <i class='fa fa-star-o'></i>
               <% end %>
-
             </td>
 
             <% end %>
