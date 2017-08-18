@@ -25,6 +25,10 @@
 						<td with="5%" class="text-center"><i class="fa fa-user fa-2x"></i></td>
 						<td><%= @storehouse.user.name %> </td>
 					</tr>
+          <tr>
+            <td with="5%" class="text-center"><i class="fa fa-trophy fa-2x"></i></td>
+            <td><%= @storehouse.reviews.average("rating").round(1) %>/5 </td>
+          </tr>
 						<tr><td></td><td></td>
 					</tr>
 				</table>
@@ -43,6 +47,37 @@
 			<% end %>
 		</div>
 </div>
+
+
+<h2>
+  <%= pluralize @storehouse.reviews.size, "review" %>
+</h2>
+
+<div id="reviews">
+  <% if @storehouse.reviews.blank? %>
+    Be the first to leave a review for <%= @storehouse.name %>
+  <% else %>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Content</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+    <% @storehouse.reviews.each do |review| %>
+      <tbody>
+      <tr>
+      <td><%= review.content %></td>
+      <td><%= review.rating %></td>
+      </tr>
+    <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+<%= render 'reviews/form', storehouse: @storehouse, review: @review %>
+
 <div class="container text-center">
   <div id="map" style="height: 500px"></div>
   <% content_for(:after_js) do %>

@@ -17,6 +17,7 @@ class StorehousesController < ApplicationController
   end
 
   def show
+     @review = Review.new
      @reservation = Reservation.new
      @hash = Gmaps4rails.build_markers(@storehouse) do |storehouse, marker|
       marker.lat storehouse.latitude
