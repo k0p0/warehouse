@@ -9,7 +9,7 @@ class StorehousesController < ApplicationController
     else
       @storehouses = Storehouse.near("#{params[:q]}", 10)
     end
-      @hash = Gmaps4rails.build_markers(@storehouses) do |storehouse, marker|
+    @hash = Gmaps4rails.build_markers(@storehouses) do |storehouse, marker|
       marker.lat storehouse.latitude
       marker.lng storehouse.longitude
       marker.infowindow render_to_string(partial: "/storehouses/map_box", locals: { storehouse: storehouse })
@@ -17,11 +17,12 @@ class StorehousesController < ApplicationController
   end
 
   def show
-     @reservation = Reservation.new
-     @hash = Gmaps4rails.build_markers(@storehouse) do |storehouse, marker|
+    @reservation = Reservation.new
+    @hash = Gmaps4rails.build_markers(@storehouse) do |storehouse, marker|
       marker.lat storehouse.latitude
       marker.lng storehouse.longitude
     end
+    @reservedDates = get_reserved_dates(@storehouse)
   end
 
   def new
@@ -48,7 +49,7 @@ class StorehousesController < ApplicationController
 
   def destroy
     if current_user.id == @storehouse.user_id
-    	@storehouse.destroy
+      @storehouse.destroy
     end
     redirect_to storhouses_path
   end
@@ -61,5 +62,14 @@ class StorehousesController < ApplicationController
 
   def params_storehouse
     params.require(:storehouse).permit(:name, :address, :capacity, :day_price, :picture, :picture_cache, :description, :user_id, :latitude, :longitude)
+  end
+
+  def get_reserved_dates(storehouse)
+    @reservedDates = []
+    # @reservations = Reservation.where('storehouse_id: ?', storehouse.id)
+    storehouse.reservations.each do |resa|
+      @reservedDates  = (resa.starts_on..resa.ends_on).map { |date| date.strftime("%d/%m/%Y")}
+    end
+    return @reservedDates
   end
 end
