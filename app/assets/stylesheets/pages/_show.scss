@@ -11,12 +11,28 @@
   }
 }
 
-#map {
+#map-show {
   margin-bottom: 10px;
+  width: 100%;
+}
+
+.align-text {
+  text-align: center;
 }
 
 .show {
-  h1 {
-  margin-top: 13vh;
-  }
+  margin-top: 189px;
+}
+
+.show-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 59px;
+  right: 0;
+  left: 0;
+  z-index: 500;
+  background-color: $light-gray;
+  margin-bottom: 5px;
 }
