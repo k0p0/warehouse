@@ -3,7 +3,7 @@
 		<h1 class="text-center header-color"><%= @storehouse.name %></h1>
 		<br>
 		<div class="show-flexbox">
-			<div class="flex-item">
+			<div class="show-flex-item-one">
 				<table class="table">
 					<tr>
 						<td with="5%" class="text-center"><i class="fa fa-map-marker fa-2x"></i></td>
@@ -34,8 +34,12 @@
 				</table>
 			</div>
 
-			<div class="flex-item">
-				<%= cl_image_tag @storehouse.picture.url, width: 400, height: 280, crop: :fill %>
+			<div class="show-flex-item">
+				<% if @storehouse.picture.url.blank? %>
+					<%= cl_image_tag "http://res.cloudinary.com/lmdn/image/upload/v1503047039/1087lc01_lvtohq.jpg" %>
+				<% else  %>
+					<%= cl_image_tag @storehouse.picture.url, crop: :fill %>
+				<% end %>
 			</div>
 		</div>
 		<div class="show-flexbox">
@@ -46,6 +50,7 @@
 			<%= f.button :submit, "Book" , class: "btn-medium book" %>
 			<% end %>
 		</div>
+
 </div>
 
 
@@ -339,6 +344,23 @@
         });
       });
     </script>
+    <script>
+		let date = new Date();
+		date.setDate(date.getDate()-1);
+
+		$(document).ready(function(){
+		  $('.datepicker').datepicker({
+		    language: 'fr',
+		    autoclose: true,
+		    orientation: "top right",
+		    postion: "absolute",
+		    startDate: date,
+		    datesDisabled: <%= raw @reservedDates %>
+		  });
+		});
+
+    </script>
+
   <% end %>
   </div>
 </div>

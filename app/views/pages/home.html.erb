@@ -2,16 +2,15 @@
 
 <div class="home">
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.chicagonow.com/small-biz-blog/files/2017/05/warehouse.jpg');">
-    <div class="banner-content">
+    <!-- <div class="banner-content">
       <h1>Stock Away</h1>
       <p>Maximise your warehouse</p>
-      <%= link_to 'See our warehouses', storehouses_path, class: "btn btn-medium btn-lg" %>
-    </div>
+    </div> -->
     <div class="searchbar container">
       <div class="title row">
-        <h2>Find our warehouses:</h2>
+        <h2>Find your nearest warehouse:</h2>
             <%= form_tag "/storehouses", id: "banner-with-search-bar", method: :get do %>
-            <%= text_field_tag(:q) %>
+            <%= text_field_tag :q, nil, placeholder: "Type your address" %>
             <%= submit_tag "search", class:'btn btn-search-bar-home' %>
           <% end %>
         </div>

@@ -4,6 +4,13 @@
   align-items: center;
 }
 
+.show-flex-item-one {
+  flex: 1 0 auto;
+}
+.show-flex-item {
+  flex: 0 0 40%;
+}
+
 .fa {
   color: black;
   &:hover {
@@ -20,3 +27,9 @@
   margin-top: 13vh;
   }
 }
+
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+    text-decoration: line-through;
+}
+
+
